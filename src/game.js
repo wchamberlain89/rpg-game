@@ -23,6 +23,7 @@ export class Game {
   addPlayer(player) {
     this.players.push(player);
   }
+
   removeResources(resource) {
 
   }

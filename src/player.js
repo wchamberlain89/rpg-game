@@ -1,9 +1,11 @@
 export class Player {
-  constructor() {
+  constructor(name) {
+    this.name = name;
     this.earth = 0;
     this.water = 0;
     this.fire = 0;
     this.wild = 0;
+    this.active = false;
   }
 
   collectResources(resource, qty) {
@@ -17,7 +19,7 @@ export class Player {
     } else if (resource == "assets/images/wild.png") {
       this.wild += qty;
     }
-    console.log(this)
+    console.log(this);
   }
 
 }
