@@ -1,0 +1,54 @@
+
+
+
+
+
+
+.game-container {
+  width: 100%;
+  max-width: 1500px;
+  height: 100vh;
+  border: 1px solid black;
+  margin: 0 auto;
+  display: grid;
+  grid-auto-rows: minmax(50vh, auto);
+  grid-template-columns: 300px 1fr;
+  grid-template-areas:
+  'playerInfo collectResources'
+  'playerInfo playerHand';
+
+  .playerInfo {
+    grid-area: playerInfo;
+    background-color: red;
+  }
+
+  .collectResources {
+    grid-area: collectResources;
+    background-color: orange;
+    .resource-container {
+      height: 200px;
+      width: 100%;
+      background-color: green;
+
+      margin-top: 50px;
+
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      .resource {
+        width: 20%;
+        height: 100%;
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+
+  .playerHand {
+    grid-area: playerHand;
+    background-color: blue;
+  }
+
+}

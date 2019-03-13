@@ -25,10 +25,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         use: [
           'style-loader',
-          'css-loader'
+          'css-loader',
+          'sass-loader'
         ]
       },
       {
@@ -38,7 +39,44 @@ module.exports = {
           /spec/
         ],
         loader: "eslint-loader"
-      }
+      },
+      {
+        test: /\.js$/,
+        exclude: [
+          /node_modules/,
+          /spec/
+        ],
+        loader: "babel-loader",
+        options: {
+          presets: ['es2015']
+        }
+      },
+      {
+        test: /\.(gif|png|jpe?g)$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[name].[ext]',
+                outputPath: 'assets/images/'
+              }
+            }
+          ]
+        },
+        {
+        test:/\.html$/,
+        use: [
+          'html-loader'
+        ]
+      },
     ]
-  }
+  },
+  plugins: [
+   new HtmlWebpackPlugin({
+     inject: 'body',
+     template: './src/index.html',
+     filename: 'index.html',
+   })
+
+ ]
 };
